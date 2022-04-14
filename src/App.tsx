@@ -4,6 +4,7 @@ import {Header} from "./Site/Header";
 import {Footer} from "./Site/Footer";
 import {Body} from "./Site/Body";
 import {NewComponent, Cars} from "./NewComponent/NewComponent";
+import {Button} from "./NewComponent/Button";
 
 
 function App() {
@@ -23,23 +24,34 @@ function App() {
         {manufacturer: 'BMW', model: "e39"},
     ]
 
+
     return (
         <div className="App">
 
+            {/*действия button*/}
+            <div>
+
+                <Button name={"MyYouTubeChannel_1"} callBack={Button1Foo}/>
+                <Button name={"MyYouTubeChannel_2"} callBack={Button2Foo}/>
+
+            </div>
+
+            {/*Вложенная компонента*/}
             {/*<div>*/}
             {/*    <Header title={"This is Header"}/>*/}
             {/*    <Body titleForBody={"This is Body"}/>*/}
             {/*    <Footer titleForFooter={"This is Footer"}/>*/}
             {/*</div>*/}
 
-            <div>
-                <NewComponent people={students}/>
-                <Cars cars = {topCars}/>
-            </div>
+            {/*Метод map*/}
+            {/*<div>*/}
+            {/*    <NewComponent people={students}/>*/}
+            {/*    <Cars cars = {topCars}/>*/}
+            {/*</div>*/}
 
 
         </div>
-    );
+);
 }
 
 export default App;
