@@ -1,9 +1,9 @@
 import React from 'react';
 
-type titleForBodyPropsType = {
+type TitleForBodyPropsType = {
     titleForBody: string
 }
-export const Body = (props: titleForBodyPropsType ) => {
+export const Body = (props: TitleForBodyPropsType ) => {
     return (
 
         <div>
