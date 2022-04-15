@@ -23,6 +23,15 @@ function App() {
         {manufacturer: 'Jaguar', model: "s2"},
         {manufacturer: 'BMW', model: "e39"},
     ]
+    const Button1Foo = (name: string , age: number) => {
+        console.log(name, age)
+    }
+    const Button2Foo = (name: string , age: number) => {
+        console.log(name, age)
+    }
+    const Button3Foo = () => {
+        console.log("Im stupid button")
+    }
 
 
     return (
@@ -31,8 +40,9 @@ function App() {
             {/*действия button*/}
             <div>
 
-                <Button name={"MyYouTubeChannel_1"} callBack={Button1Foo}/>
-                <Button name={"MyYouTubeChannel_2"} callBack={Button2Foo}/>
+                <Button name={"MyYouTubeChannel_1"} callBack={()=>Button1Foo("Ivan",21)}/>
+                <Button name={"MyYouTubeChannel_2"} callBack={()=>Button2Foo("Vasia",44)}/>
+                <Button name={"MyYouTubeChannel_3"} callBack={Button3Foo}/>
 
             </div>
 
