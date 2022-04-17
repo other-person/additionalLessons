@@ -4,10 +4,12 @@ import {Header} from "./Site/Header";
 import {Footer} from "./Site/Footer";
 import {Body} from "./Site/Body";
 import {NewComponent, Cars} from "./NewComponent/NewComponent";
-import {Button} from "./NewComponent/Button";
-import { ComponentForFilter } from './ComponentForFilter';
+import {ComponentForFilter} from './ComponentForFilter';
+import {FullInput} from './FullInput';
+import {Input} from './Input';
+import { Button } from './Button';
 
-export type filterType = "all" |"rubel"|"dollar"
+export type filterType = "all" | "rubel" | "dollar"
 
 function App() {
 
@@ -53,35 +55,58 @@ function App() {
     // }
 
 
-    let [money, setMoney] = useState([
-        {banknote: "dollar", nominal: 100, number: "fd1335425"},
-        {banknote: "dollar", nominal: 100, number: "fd1335425"},
-        {banknote: "rubel", nominal: 50, number: "335asdsad"},
-        {banknote: "dollar", nominal: 100, number: "dfs4334"},
-        {banknote: "rubel", nominal: 50, number: "sdgdsf12321"},
-        {banknote: "rubel", nominal: 100, number: "dfd21321321"},
-        {banknote: "dollar", nominal: 20, number: "wqer231312"},
+    // let [money, setMoney] = useState([
+    //     {banknote: "dollar", nominal: 100, number: "fd1335425"},
+    //     {banknote: "dollar", nominal: 100, number: "fd1335425"},
+    //     {banknote: "rubel", nominal: 50, number: "335asdsad"},
+    //     {banknote: "dollar", nominal: 100, number: "dfs4334"},
+    //     {banknote: "rubel", nominal: 50, number: "sdgdsf12321"},
+    //     {banknote: "rubel", nominal: 100, number: "dfd21321321"},
+    //     {banknote: "dollar", nominal: 20, number: "wqer231312"},
+    // ])
+    //
+    // const [filter, setFilter] = useState<filterType>('all');
+    //
+    // let currentMoney = money;
+    //
+    // if (filter === 'dollar') {
+    //     currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === "dollar")
+    // }
+    // if (filter === 'rubel') {
+    //     currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === "rubel")
+    // }
+    //
+    // const onClickfilterHandler = (nameButton: filterType) => {
+    //     setFilter(nameButton)
+    // }
+
+    let [message, setMessage] = useState([
+        {message: "message1"},
+        {message: "message2"},
+        {message: "message3"}
     ])
 
-    const [filter, setFilter] = useState<filterType>('all');
+    let [title, setTitle] = useState("");
 
-    let currentMoney = money;
 
-    if (filter === 'dollar') {
-        currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === "dollar")
+
+    const addMessage = (title: string) => {
+        let newMessage = {message: title}
+        setMessage([newMessage, ...message])
     }
-    if (filter === 'rubel') {
-        currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === "rubel")
-    }
-
-    const onClickfilterHandler = (nameButton: filterType) => {
-        setFilter(nameButton)
-    }
-
     return (
         <div className="App">
 
-        <ComponentForFilter  currentMoney={currentMoney} onClickfilterHandler={ onClickfilterHandler}/>
+            <FullInput addMessage={addMessage}/>
+
+            {message.map((el, index) => {
+                return (
+                    <div key={index}>{el.message}</div>
+                )
+            })}
+
+            {/*Компонента в задании с filter*/}
+            {/*<ComponentForFilter  currentMoney={currentMoney} onClickfilterHandler={ onClickfilterHandler}/>*/}
 
             {/*useState*/}
 
