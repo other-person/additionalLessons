@@ -7,7 +7,8 @@ import {NewComponent, Cars} from "./NewComponent/NewComponent";
 import {ComponentForFilter} from './ComponentForFilter';
 import {FullInput} from './FullInput';
 import {Input} from './Input';
-import { Button } from './Button';
+import {Button} from './Button';
+
 
 export type filterType = "all" | "rubel" | "dollar"
 
@@ -89,15 +90,21 @@ function App() {
     let [title, setTitle] = useState("");
 
 
-
     const addMessage = (title: string) => {
         let newMessage = {message: title}
         setMessage([newMessage, ...message])
     }
+    const callBackButtonHandler = () => {
+        addMessage(title)
+        setTitle("")
+    }
     return (
         <div className="App">
 
-            <FullInput addMessage={addMessage}/>
+            {/*<FullInput addMessage={addMessage}/>*/}
+
+            <Input title={title} setTitle={setTitle}/>
+            <Button name={"+"} callBack={callBackButtonHandler}/>
 
             {message.map((el, index) => {
                 return (
